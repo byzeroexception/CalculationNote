@@ -1,0 +1,49 @@
+import javax.swing.JOptionPane;
+
+public class UniversityNoteCalculation {
+
+	public static String v,f;
+	public static int vize,finall;
+	public static double result;
+	
+	
+	public static void main(String args[] ) {
+		input();
+	}
+	
+	static void input() {
+		v=JOptionPane.showInputDialog(null,"Please entered your 'Vize' note:","System",JOptionPane.PLAIN_MESSAGE);
+		vize=Integer.parseInt(v);
+		
+		f=JOptionPane.showInputDialog(null,"Please entered your 'Final' note:","System",JOptionPane.PLAIN_MESSAGE);
+		finall=Integer.parseInt(f);
+		
+		result = (vize*0.30) + (finall*0.7);
+		
+		if(result>100) {
+			incorrect();
+		}
+		else if(result>50) {
+			JOptionPane.showMessageDialog(null,"you passed exam. your score: "+result,"System",JOptionPane.PLAIN_MESSAGE);
+		}
+		else if(vize<0) {
+			incorrect();
+		}
+		else{
+			JOptionPane.showMessageDialog(null,
+					"you failed the exam. your score: "+result,
+					"System",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+	}
+	
+	static void incorrect() {
+	JOptionPane.showMessageDialog(null, 
+			"Please entered 0 to 100",
+			"SystemSyntaxIncorrect",
+			JOptionPane.ERROR_MESSAGE);
+	}
+	
+	
+}
